@@ -1,1 +1,1 @@
-Codility Solutions
+ctci Solutions
