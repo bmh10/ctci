@@ -1,4 +1,4 @@
-package c1;
+package c1_arraysAndStrings;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,10 +1,7 @@
-package c1;
+package c1_arraysAndStrings;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Urlify {
 

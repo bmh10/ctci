@@ -1,4 +1,4 @@
-package c2;
+package c2_linkedLists;
 
 import org.junit.Assert;
 import org.junit.Test;
