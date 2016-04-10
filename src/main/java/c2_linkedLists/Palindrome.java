@@ -37,12 +37,28 @@ public class Palindrome {
     }
 
     public boolean isPalindrome_doublyLinked(LinkedList<Integer> L) {
-        // TODO
-        return false;
+        final Iterator<Integer> forward = L.iterator();
+        final Iterator<Integer> backwards = L.descendingIterator();
+        final int mirrorPoint = Math.floorDiv(L.size(), 2) - 1;
+        int idx = 0;
+
+        while (forward.hasNext()) {
+            if (idx >= mirrorPoint) {
+                return true;
+            }
+
+            if (forward.next() != backwards.next()) {
+                return false;
+            }
+
+            idx++;
+        }
+
+        return true;
     }
 
     @Test
-    public void test_sumListsReverse() {
+    public void test_isPalindrome_singlyLinked() {
         final LinkedList<Integer> A = new LinkedList<Integer>() {{
             add(1); add(2); add(3); add(2); add(1);
         }};
@@ -58,5 +74,24 @@ public class Palindrome {
         Assert.assertTrue(isPalindrome_singlyLinked(A));
         Assert.assertTrue(isPalindrome_singlyLinked(B));
         Assert.assertFalse(isPalindrome_singlyLinked(C));
+    }
+
+    @Test
+    public void test_isPalindrome_doublyLinked() {
+        final LinkedList<Integer> A = new LinkedList<Integer>() {{
+            add(1); add(2); add(3); add(2); add(1);
+        }};
+
+        final LinkedList<Integer> B = new LinkedList<Integer>() {{
+            add(1); add(2); add(2); add(1);
+        }};
+
+        final LinkedList<Integer> C = new LinkedList<Integer>() {{
+            add(1); add(2); add(2); add(2);
+        }};
+
+        Assert.assertTrue(isPalindrome_doublyLinked(A));
+        Assert.assertTrue(isPalindrome_doublyLinked(B));
+        Assert.assertFalse(isPalindrome_doublyLinked(C));
     }
 }
